@@ -223,7 +223,7 @@ namespace pub3 {
 
     // Mutations
     ptr<expr_list_t> to_list () ;
-    ptr<expr_dict_t> to_dict (bool cajole = true);
+    ptr<expr_dict_t> to_dict ();
 
   protected:
     obj_t &set_value (ptr<expr_t> v);

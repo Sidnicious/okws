@@ -231,13 +231,13 @@ namespace pub3 {
   //-----------------------------------------------------------------------
 
   ptr<expr_dict_t>
-  obj_t::to_dict (bool cajole)
+  obj_t::to_dict ()
   {
-    if (!_dict && obj () && cajole) {
+    if (!_dict && obj ()) {
       _dict = obj ()->to_dict ();
     }
 
-    if (!_dict && cajole) {
+    if (!_dict) {
       _scalar = NULL;
       _list = NULL;
       _dict = expr_dict_t::alloc ();
@@ -431,7 +431,7 @@ namespace pub3 {
   void
   obj_t::remove_key (str k)
   {
-    ptr<expr_dict_t> d = to_dict (false);
+    ptr<expr_dict_t> d = to_dict ();
     if (d) { d->remove (k); }
   }
 
